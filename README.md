@@ -1,40 +1,44 @@
 # I18n::RemoteFile
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/i18n/remote_file`. To experiment with that code, run `bin/console` for an interactive prompt.
+A gem builds on top of the [i18n](https://github.com/ruby-i18n/i18n) library that can support fetching translation files via HTTP rather than just relying on local translation files. It can also fall back to local translation files in case of any network issues
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+- Add the following Gem to your gemfile
+```
+gem 'i18n-remote_file', git: "https://github.com/JiaPing1019/i18n-remote_file.git"
+```
 
-Install the gem and add to the application's Gemfile by executing:
-
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+- Run bundle install to install extact gem
+```
+bundle install
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+- Integrate the feature to the project 
+```
+I18n::Backend::RemoteFile.config(base_url, locales_dir, files)
+```
 
-## Development
+- Run HTTP server in local environment.
+```
+brew install http-server
+cd spec/fixtures
+npx http-server
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+More information can find in [http-server](https://www.npmjs.com/package/http-server)
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
-## Contributing
+## Run tests
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/i18n-remote_file. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/i18n-remote_file/blob/master/CODE_OF_CONDUCT.md).
+- For all files
+```
+rspec
+```
 
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the I18n::RemoteFile project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/i18n-remote_file/blob/master/CODE_OF_CONDUCT.md).
-# i18n-remote_file
+- For specific file
+```
+rspec path/to/spec/file.rb
+```
