@@ -21,7 +21,7 @@ module I18n
             raise Errno::ENOENT if paring_files[filename].status == 404 
             file_path = File.join(dir, filename)
 
-            File.write(file_path(dir, filename), file_content)
+            File.write(file_path(dir, filename), file_content.body)
             @success_write_count += 1
           rescue Errno::ENOENT => e
             @failed_write_count += 1
