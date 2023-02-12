@@ -8,7 +8,8 @@ module I18n
       def self.execute(base_url, locales_dir, files)
         config = Config.new(base_url, locales_dir, files)
         files = fetch_remote_files(config)
-        translate_files(files)
+        translations = translate_files(files).translations
+        fallback_list = translate_files(files).fallback_list 
       end
 
       private
