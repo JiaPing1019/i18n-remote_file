@@ -7,10 +7,10 @@ require 'i18n/backend/remote_file/write_files'
 
 RSpec.describe I18n::Backend::RemoteFile::WriteFiles do
   describe '#write' do
-    context 'when writing successfully' do
+    context 'when all files can be written successfully' do
       let(:files) { ['en.yml', 'de.yml', 'fr.yml'] }
 
-      it 'no errors' do
+      it 'has 0 failed_write_count' do
         VCR.use_cassette('write_files__parsing_files') do
           config = I18n::Backend::RemoteFile::Config.new(base_url, locales_dir, files)
           files = I18n::Backend::RemoteFile::FetchFiles.new(config).fetch
@@ -23,10 +23,10 @@ RSpec.describe I18n::Backend::RemoteFile::WriteFiles do
       end
     end
 
-    context 'when fail to write' do
+    context 'when some files failed to write' do
       let(:files) { ['en.yml', 'cn.yml'] }
       
-      it 'shows error' do
+      it 'has at least 1 failed_write_count' do
          VCR.use_cassette('write_files__having_missing_file') do
           config = I18n::Backend::RemoteFile::Config.new(base_url, locales_dir, files)
           files = I18n::Backend::RemoteFile::FetchFiles.new(config).fetch
@@ -44,6 +44,6 @@ RSpec.describe I18n::Backend::RemoteFile::WriteFiles do
   private
 
   def temp_dir 
-    "spec/fixtures/remote/tmp"
+    "spec/fixtures/tmp"
   end
 end
