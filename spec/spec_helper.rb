@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-require "i18n/remote_file"
+require 'i18n/remote_file'
+require './spec/support/i18n_helper'
+require './spec/support/vcr_config'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -8,6 +10,8 @@ RSpec.configure do |config|
 
   # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!
+  config.include I18nHelper
+  config.include VcrConfig
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
