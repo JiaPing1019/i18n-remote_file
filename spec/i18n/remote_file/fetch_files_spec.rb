@@ -29,6 +29,9 @@ RSpec.describe I18n::Backend::RemoteFile::FetchFiles do
         expect(res['en.yml'].status).to eq(200)
         expect(res['fr.yml'].status).to eq(200)
         expect(res['de.yml'].status).to eq(200)
+        expect(res['en.yml'].body).to eq(test_en_body)
+        expect(res['fr.yml'].body).to eq(test_fr_body)
+        expect(res['de.yml'].body).to eq(test_de_body)
       end
     end
 
@@ -45,6 +48,9 @@ RSpec.describe I18n::Backend::RemoteFile::FetchFiles do
         expect(res['en.yml'].status).to eq(200)
         expect(res['de.yml'].status).to eq(200)
         expect(res['cn.yml'].status).to eq(404)
+        expect(res['en.yml'].body).to eq(test_en_body)
+        expect(res['de.yml'].body).to eq(test_de_body)
+        expect(res['cn.yml'].body).to eq('')
       end
     end
   end

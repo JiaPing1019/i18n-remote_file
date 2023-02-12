@@ -31,7 +31,7 @@ http_interactions:
       Content-Type:
       - text/yaml; charset=UTF-8
       Date:
-      - Sun, 12 Feb 2023 16:21:57 GMT
+      - Sun, 12 Feb 2023 16:54:26 GMT
       Connection:
       - keep-alive
       Keep-Alive:
@@ -44,52 +44,7 @@ http_interactions:
             bar:
               hello: Hello
     http_version:
-  recorded_at: Sun, 12 Feb 2023 16:21:57 GMT
-- request:
-    method: get
-    uri: http://localhost:8080/de.yml
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Accept-Ranges:
-      - bytes
-      Cache-Control:
-      - max-age=3600
-      Last-Modified:
-      - Sun, 12 Feb 2023 16:06:02 GMT
-      Etag:
-      - W/"45993098-39-2023-02-12T16:06:02.410Z"
-      Content-Length:
-      - '39'
-      Content-Type:
-      - text/yaml; charset=UTF-8
-      Date:
-      - Sun, 12 Feb 2023 16:21:57 GMT
-      Connection:
-      - keep-alive
-      Keep-Alive:
-      - timeout=5
-    body:
-      encoding: UTF-8
-      string: |
-        de:
-          foo:
-            bar:
-              hello: Hallo
-    http_version:
-  recorded_at: Sun, 12 Feb 2023 16:21:57 GMT
+  recorded_at: Sun, 12 Feb 2023 16:54:26 GMT
 - request:
     method: get
     uri: http://localhost:8080/cn.yml
@@ -111,7 +66,7 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Sun, 12 Feb 2023 16:21:57 GMT
+      - Sun, 12 Feb 2023 16:54:26 GMT
       Connection:
       - keep-alive
       Keep-Alive:
@@ -122,5 +77,5 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version:
-  recorded_at: Sun, 12 Feb 2023 16:21:57 GMT
+  recorded_at: Sun, 12 Feb 2023 16:54:26 GMT
 recorded_with: VCR 3.0.3

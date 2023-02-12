@@ -7,14 +7,18 @@ module I18n
     class RemoteFile
       def self.execute(base_url, locales_dir, files)
         config = Config.new(base_url, locales_dir, files)
-        fetch_remote_files(config)
-
+        files = fetch_remote_files(config)
+        translate_files(files)
       end
 
       private
 
       def fetch_remote_files(config)
-        res = I18n::Backend::RemoteFile::FetchFiles.new(config).fetch
+        I18n::Backend::RemoteFile::FetchFiles.new(config).fetch
+      end
+
+      def translate_files(files)
+        I18n::Backend::RemoteFile::TranslateFiles.new(files).translate
       end
     end
   end
